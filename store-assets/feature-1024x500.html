@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 1024px; height: 500px; overflow: hidden; }
+  body {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(125deg, #5C68E0 0%, #4F5BD5 45%, #373E90 100%);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    position: relative;
+  }
+  /* Soft highlight so the flat gradient does not band on large displays. */
+  .glow {
+    position: absolute; top: -180px; left: -120px;
+    width: 620px; height: 620px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.13) 0%, rgba(255,255,255,0) 70%);
+  }
+
+  /* Text kept well inside the edges — Play crops this graphic on some surfaces. */
+  .copy { position: relative; padding-left: 84px; width: 470px; }
+  .title {
+    color: #fff; font-size: 76px; font-weight: 700;
+    letter-spacing: -1.5px; line-height: 1; margin: 0;
+  }
+  .tagline {
+    color: #C9CEFF; font-size: 29px; font-weight: 400;
+    line-height: 1.35; margin: 22px 0 0;
+  }
+  .pills { display: flex; gap: 10px; margin-top: 30px; }
+  .pill {
+    color: #E7E9FF; font-size: 17px; font-weight: 600;
+    border: 1.5px solid rgba(255,255,255,.38); border-radius: 999px;
+    padding: 8px 16px; white-space: nowrap;
+  }
+
+  /* Task card mock on the right. */
+  .card {
+    position: absolute; right: 92px; top: 78px;
+    width: 340px; background: #FBFAFF;
+    border-radius: 28px; padding: 26px 26px 30px;
+    box-shadow: 0 26px 60px rgba(23,26,64,.34);
+  }
+  .card h2 {
+    margin: 0; font-size: 25px; font-weight: 700; color: #1B1B21;
+    letter-spacing: -.3px;
+  }
+  .card .date { margin: 5px 0 20px; font-size: 15px; color: #46464F; }
+  .bar { height: 9px; border-radius: 99px; background: #E2E3FF; overflow: hidden; }
+  .bar span { display: block; width: 66%; height: 100%; border-radius: 99px; background: #4F5BD5; }
+  .pct { margin: 9px 0 22px; font-size: 14px; font-weight: 600; color: #4F5BD5; }
+
+  .row { display: flex; align-items: center; gap: 13px; padding: 11px 0; }
+  .row + .row { border-top: 1px solid #E9E8F2; }
+  .box {
+    width: 24px; height: 24px; border-radius: 8px; flex: none;
+    border: 2.2px solid #777680;
+  }
+  .box.on { background: #4F5BD5; border-color: #4F5BD5; position: relative; }
+  .box.on::after {
+    content: ""; position: absolute; left: 7px; top: 3px;
+    width: 5px; height: 10px; border: solid #fff;
+    border-width: 0 2.4px 2.4px 0; transform: rotate(45deg);
+  }
+  .txt { font-size: 17px; color: #1B1B21; }
+  .txt.done { color: #777680; text-decoration: line-through; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+
+  <div class="copy">
+    <p class="title">Todo Demo</p>
+    <p class="tagline">Simple offline task list<br>with due dates and dark mode.</p>
+    <div class="pills">
+      <div class="pill">No ads</div>
+      <div class="pill">No account</div>
+      <div class="pill">Works offline</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Today</h2>
+    <div class="date">Wednesday, 19 August</div>
+    <div class="bar"><span></span></div>
+    <div class="pct">66% complete</div>
+
+    <div class="row"><div class="box on"></div><div class="txt done">Pay electricity bill</div></div>
+    <div class="row"><div class="box on"></div><div class="txt done">Book train tickets</div></div>
+    <div class="row"><div class="box"></div><div class="txt">Finish project report</div></div>
+  </div>
+</body>
+</html>
